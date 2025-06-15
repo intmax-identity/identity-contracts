@@ -30,13 +30,15 @@ contract WhitelistManager is BaseUltraVerifier {
     function loadVerificationKey(uint256 vk, uint256 _omegaInverseLoc) internal pure override(BaseUltraVerifier) {
         UltraVerificationKey.loadVerificationKey(vk, _omegaInverseLoc);
     }
-    
     /**
      * @dev Verifies an UltraPlonk proof and whitelists the address if verification succeeds
      * @param proof The UltraPlonk proof to verify
      * @param publicInputs The public inputs for the proof
      * @param addressToWhitelist The address to whitelist if proof verification succeeds
      * @return success Whether the proof verification and whitelisting was successful
+     * @notice Security: proof and addressToWhitelist should be contrained within the proof.
+     *         This function is not secure if the address is not constrained within the proof.
+     *         Be deliberatly missed it for now to show PoC.
      */
     function verifyAndWhitelist(
         bytes calldata proof,
