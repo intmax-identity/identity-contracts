@@ -37,7 +37,7 @@ const config: HardhatUserConfig = {
       gasMultiplier: 1.2,
     },
     sepolia: {
-      url: `https://sepolia.infura.io/v3/${process.env.INFURA_KEY}`,
+      url: `https://1rpc.io/sepolia`,
       accounts: privateKey(),
       gasMultiplier: 1.2,
     },
